@@ -22,18 +22,23 @@
             <tbody>
                 @foreach ($products as $product)
                     <tr>
-                        <td class="p-2 border text-center">{{ $loop->iteration }}</td>
+                        <td class="p-2 border text-center">{{ $loop->iteration + $products->perPage() * ($products->currentPage() - 1) }}</td>
                         <td class="p-2 border">{{ $product->name }}</td>
                         <td class="p-2 border">{{ $product->category->category }}</td>
                         <td class="p-2 border">{{ $product->slug }}</td>
-                        <td class="p-2 border flex gap-2">
-                            <a href="{{ route('product.edit', $product) }}" class="text-blue-500">Edit</a>
-                            <form action="{{ route('product.destroy', $product) }}" method="POST"
-                                onsubmit="return confirm('Yakin hapus?')">
-                                @csrf @method('DELETE')
-                                <button type="submit" class="text-red-500">Hapus</button>
-                            </form>
-                        </td>
+                            <td class="p-2 border flex gap-2 justify-center">
+                                <button class="bg-blue-100 p-2 rounded">
+                                    <a href="{{ route('product.edit', $product) }}" class="text-blue-500">Edit</a>
+                                </button>
+                                    <form action="{{ route('product.destroy', $product) }}" method="POST"
+                                        onsubmit="return confirm('Yakin hapus?')">
+                                        @csrf @method('DELETE')
+                                        <button type="submit" class="bg-red-100 p-2 rounded text-red-500">Hapus</button>
+                                    </form>
+                                <button class="bg-yellow-100 p-2 rounded">
+                                    <a href="{{ route('product.show', $product) }}" class="text-yellow-500">Variant</a>
+                                </button>
+                            </td>
                     </tr>
                 @endforeach
             </tbody>

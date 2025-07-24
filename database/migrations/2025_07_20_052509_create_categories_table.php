@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->enum('category', ['makanan', 'minuman', 'perkakas', 'elektronik']);
+            $table->enum('category', ['Perkakas Tangan', 'Perkakas Listrik', 'Alat Ukur', 'Alat Keselamatan', 'Perlengkapan Bengkel']);
             $table->timestamps();
         });
     }
