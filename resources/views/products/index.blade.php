@@ -12,6 +12,7 @@
         <table class="w-full border rounded shadow">
             <thead class="bg-gray-100">
                 <tr>
+                    <th class="p-2 border">No</th>
                     <th class="p-2 border">Nama</th>
                     <th class="p-2 border">Kategori</th>
                     <th class="p-2 border">Slug</th>
@@ -21,6 +22,7 @@
             <tbody>
                 @foreach ($products as $product)
                     <tr>
+                        <td class="p-2 border text-center">{{ $loop->iteration }}</td>
                         <td class="p-2 border">{{ $product->name }}</td>
                         <td class="p-2 border">{{ $product->category->category }}</td>
                         <td class="p-2 border">{{ $product->slug }}</td>
