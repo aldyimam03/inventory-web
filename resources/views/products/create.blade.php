@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="p-6">
+    <div class="p-6 max-w-3xl mx-auto">
         <h2 class="text-2xl font-semibold mb-4">Tambah Produk Baru</h2>
 
         @if ($errors->any())
