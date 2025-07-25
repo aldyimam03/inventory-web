@@ -15,19 +15,19 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
+                'category' => 'Perkakas Berat'
+            ],
+            [
                 'category' => 'Perkakas Tangan'
             ],
             [
-                'category' => 'Perkakas Listrik'
-            ],
-            [
-                'category' => 'Alat Ukur'
-            ],
-            [
-                'category' => 'Alat Keselamatan'
+                'category' => 'Peralatan Elektrikal'
             ],
             [
                 'category' => 'Perlengkapan Bengkel'
+            ],
+            [
+                'category' => 'Alat Kebersihan'
             ],
         ];
 

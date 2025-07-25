@@ -13,220 +13,65 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         $products = [
-            // Perkakas Tangan (category_id: 1)
-            [
-                'name' => 'Palu Besi 500gr',
-                'category_id' => 1,
-                'description' => 'Palu dengan kepala besi solid untuk pekerjaan konstruksi',
-            ],
-            [
-                'name' => 'Palu Kayu 300gr',
-                'category_id' => 1,
-                'description' => 'Palu dengan kepala kayu untuk finishing halus',
-            ],
-            [
-                'name' => 'Palu Karet 400gr',
-                'category_id' => 1,
-                'description' => 'Palu karet untuk pemasangan keramik dan genteng',
-            ],
-            [
-                'name' => 'Obeng Plus Set',
-                'category_id' => 1,
-                'description' => 'Set obeng plus berbagai ukuran (PH0, PH1, PH2, PH3)',
-            ],
-            [
-                'name' => 'Obeng Minus Set',
-                'category_id' => 1,
-                'description' => 'Set obeng minus berbagai ukuran (3mm, 5mm, 8mm)',
-            ],
-            [
-                'name' => 'Tang Potong 8 inch',
-                'category_id' => 1,
-                'description' => 'Tang potong untuk memotong kawat dan kabel',
-            ],
-            [
-                'name' => 'Tang Buaya 10 inch',
-                'category_id' => 1,
-                'description' => 'Tang dengan rahang bergerigi untuk mencengkram',
-            ],
-            [
-                'name' => 'Kunci Pas Set 8-24mm',
-                'category_id' => 1,
-                'description' => 'Set kunci pas kombinasi ring dan pas',
-            ],
-            [
-                'name' => 'Kunci Inggris 12 inch',
-                'category_id' => 1,
-                'description' => 'Kunci inggris adjustable untuk berbagai ukuran baut',
-            ],
-            [
-                'name' => 'Gergaji Besi Manual',
-                'category_id' => 1,
-                'description' => 'Gergaji manual untuk memotong besi dan logam',
-            ],
-            [
-                'name' => 'Gergaji Kayu Manual',
-                'category_id' => 1,
-                'description' => 'Gergaji manual khusus untuk memotong kayu',
-            ],
+            // Perkakas Berat (category_id: 1)
+            ['name' => 'Sekop', 'category_id' => 1, 'description' => 'Alat untuk menggali dan memindahkan material seperti tanah dan pasir'],
+            ['name' => 'Cangkul', 'category_id' => 1, 'description' => 'Alat pertanian atau konstruksi untuk menggemburkan tanah'],
+            ['name' => 'Linggis', 'category_id' => 1, 'description' => 'Batang besi kuat untuk mencabut paku atau membongkar material keras'],
+            ['name' => 'Palu Besar', 'category_id' => 1, 'description' => 'Palu berukuran besar untuk pekerjaan berat seperti menghancurkan'],
+            ['name' => 'Gergaji Mesin', 'category_id' => 1, 'description' => 'Gergaji bertenaga mesin untuk pemotongan cepat material besar'],
+            ['name' => 'Bor', 'category_id' => 1, 'description' => 'Alat untuk melubangi berbagai jenis material'],
+            ['name' => 'Mesin Pemotong', 'category_id' => 1, 'description' => 'Mesin untuk memotong material keras seperti keramik dan kayu'],
+            ['name' => 'Pemadat Tanah', 'category_id' => 1, 'description' => 'Alat untuk memadatkan tanah atau aspal'],
+            ['name' => 'Mesin Las', 'category_id' => 1, 'description' => 'Mesin untuk penyambungan logam dengan panas tinggi'],
+            ['name' => 'Jack Hammer', 'category_id' => 1, 'description' => 'Mesin pemecah beton atau aspal dengan tenaga getar'],
 
-            // Perkakas Listrik (category_id: 2)
-            [
-                'name' => 'Bor Listrik 13mm',
-                'category_id' => 2,
-                'description' => 'Bor listrik dengan chuck 13mm untuk drilling',
-            ],
-            [
-                'name' => 'Bor Baterai 12V',
-                'category_id' => 2,
-                'description' => 'Bor cordless dengan baterai lithium 12V',
-            ],
-            [
-                'name' => 'Bor Baterai 18V',
-                'category_id' => 2,
-                'description' => 'Bor cordless heavy duty dengan baterai 18V',
-            ],
-            [
-                'name' => 'Gerinda Tangan 4 inch',
-                'category_id' => 2,
-                'description' => 'Gerinda tangan untuk grinding dan cutting',
-            ],
-            [
-                'name' => 'Circular Saw 7 inch',
-                'category_id' => 2,
-                'description' => 'Gergaji circular untuk memotong kayu dan triplek',
-            ],
-            [
-                'name' => 'Jigsaw Listrik',
-                'category_id' => 2,
-                'description' => 'Jigsaw untuk memotong bentuk melengkung',
-            ],
-            [
-                'name' => 'Mesin Las Inverter 200A',
-                'category_id' => 2,
-                'description' => 'Mesin las inverter portable 200 ampere',
-            ],
+            // Perkakas Tangan (category_id: 2)
+            ['name' => 'Obeng', 'category_id' => 2, 'description' => 'Alat untuk membuka dan mengencangkan sekrup'],
+            ['name' => 'Tang', 'category_id' => 2, 'description' => 'Alat genggam untuk menjepit, memotong, atau membengkokkan'],
+            ['name' => 'Kunci Pas', 'category_id' => 2, 'description' => 'Alat untuk membuka atau mengencangkan baut dan mur'],
+            ['name' => 'Kunci Inggris', 'category_id' => 2, 'description' => 'Kunci serbaguna dengan ukuran rahang yang bisa diatur'],
+            ['name' => 'Pisau Serbaguna', 'category_id' => 2, 'description' => 'Alat pemotong kecil untuk berbagai keperluan'],
+            ['name' => 'Palu Kecil', 'category_id' => 2, 'description' => 'Palu ringan untuk pekerjaan detail atau ringan'],
+            ['name' => 'Meteran', 'category_id' => 2, 'description' => 'Alat ukur panjang fleksibel'],
+            ['name' => 'Waterpass', 'category_id' => 2, 'description' => 'Alat untuk mengecek kerataan secara horizontal atau vertikal'],
+            ['name' => 'Siku Ukur', 'category_id' => 2, 'description' => 'Alat bantu ukur sudut siku (90 derajat)'],
+            ['name' => 'Kunci L', 'category_id' => 2, 'description' => 'Kunci berbentuk L untuk sekrup heksagonal'],
 
-            // Alat Ukur (category_id: 3)
-            [
-                'name' => 'Meteran Besi 3 meter',
-                'category_id' => 3,
-                'description' => 'Meteran besi fleksibel 3 meter dengan casing logam',
-            ],
-            [
-                'name' => 'Meteran Besi 5 meter',
-                'category_id' => 3,
-                'description' => 'Meteran besi heavy duty 5 meter',
-            ],
-            [
-                'name' => 'Meteran Kain 50 meter',
-                'category_id' => 3,
-                'description' => 'Meteran kain untuk pengukuran jarak jauh',
-            ],
-            [
-                'name' => 'Waterpass 60cm',
-                'category_id' => 3,
-                'description' => 'Spirit level aluminium 60cm dengan 3 bubble',
-            ],
-            [
-                'name' => 'Waterpass 120cm',
-                'category_id' => 3,
-                'description' => 'Spirit level aluminium 120cm untuk konstruksi',
-            ],
-            [
-                'name' => 'Siku Besi 30cm',
-                'category_id' => 3,
-                'description' => 'Siku besi untuk mengukur sudut 90 derajat',
-            ],
-            [
-                'name' => 'Jangka Sorong Digital',
-                'category_id' => 3,
-                'description' => 'Caliper digital dengan akurasi 0.01mm',
-            ],
+            // Peralatan Elektrikal (category_id: 3)
+            ['name' => 'Testpen', 'category_id' => 3, 'description' => 'Alat untuk mengecek keberadaan listrik di suatu titik'],
+            ['name' => 'Multimeter', 'category_id' => 3, 'description' => 'Alat ukur listrik seperti tegangan, arus, dan hambatan'],
+            ['name' => 'Tang Ampere', 'category_id' => 3, 'description' => 'Alat ukur arus listrik tanpa memutus kabel'],
+            ['name' => 'Solder', 'category_id' => 3, 'description' => 'Alat untuk menyambung komponen elektronik dengan timah'],
+            ['name' => 'Crimping Tool', 'category_id' => 3, 'description' => 'Alat penjepit konektor kabel'],
+            ['name' => 'Striping Tool', 'category_id' => 3, 'description' => 'Alat untuk mengupas isolasi kabel'],
+            ['name' => 'Detektor Tegangan', 'category_id' => 3, 'description' => 'Alat untuk mendeteksi adanya tegangan listrik'],
+            ['name' => 'Obeng Listrik', 'category_id' => 3, 'description' => 'Obeng otomatis dengan motor listrik'],
+            ['name' => 'Thermal Gun', 'category_id' => 3, 'description' => 'Alat pengukur suhu permukaan tanpa kontak'],
+            ['name' => 'Alat Ukur Isolasi', 'category_id' => 3, 'description' => 'Alat ukur tahanan isolasi kabel listrik'],
 
-            // Alat Keselamatan (category_id: 4)
-            [
-                'name' => 'Helm Safety Putih',
-                'category_id' => 4,
-                'description' => 'Helm keselamatan kerja warna putih standar SNI',
-            ],
-            [
-                'name' => 'Helm Safety Kuning',
-                'category_id' => 4,
-                'description' => 'Helm keselamatan kerja warna kuning',
-            ],
-            [
-                'name' => 'Kacamata Safety Clear',
-                'category_id' => 4,
-                'description' => 'Kacamata safety dengan lensa jernih anti-fog',
-            ],
-            [
-                'name' => 'Kacamata Safety Gelap',
-                'category_id' => 4,
-                'description' => 'Kacamata safety dengan lensa gelap anti-UV',
-            ],
-            [
-                'name' => 'Sarung Tangan Karet',
-                'category_id' => 4,
-                'description' => 'Sarung Tangan karet untuk pekerjaan basah',
-            ],
-            [
-                'name' => 'Sarung Tangan Kulit',
-                'category_id' => 4,
-                'description' => 'Sarung tangan kulit untuk welding dan handling',
-            ],
-            [
-                'name' => 'Masker Debu N95',
-                'category_id' => 4,
-                'description' => 'Masker anti debu standar N95 untuk grinding',
-            ],
+            // Perkakas Bengkel (category_id: 4)
+            ['name' => 'Dongkrak', 'category_id' => 4, 'description' => 'Alat angkat beban seperti mobil'],
+            ['name' => 'Kunci Torsi', 'category_id' => 4, 'description' => 'Kunci untuk mengencangkan baut dengan torsi tertentu'],
+            ['name' => 'Kunci Sok', 'category_id' => 4, 'description' => 'Kunci berbentuk soket untuk baut dan mur'],
+            ['name' => 'Pompa', 'category_id' => 4, 'description' => 'Alat untuk memompa udara, air, atau oli'],
+            ['name' => 'Tang Rivet', 'category_id' => 4, 'description' => 'Alat untuk memasang paku keling (rivet)'],
+            ['name' => 'Grenda', 'category_id' => 4, 'description' => 'Mesin gerinda untuk mengasah atau memotong'],
+            ['name' => 'Kunci Busi', 'category_id' => 4, 'description' => 'Kunci khusus untuk membuka busi kendaraan'],
+            ['name' => 'Alat Ukur Tekanan', 'category_id' => 4, 'description' => 'Alat untuk mengukur tekanan udara atau cairan'],
+            ['name' => 'Feeler Gauge', 'category_id' => 4, 'description' => 'Alat untuk mengukur celah atau jarak kecil'],
+            ['name' => 'Mesin Steam', 'category_id' => 4, 'description' => 'Alat semprot air bertekanan untuk membersihkan'],
 
-            // Perlengkapan Bengkel (category_id: 5)
-            [
-                'name' => 'Ragum Meja 4 inch',
-                'category_id' => 5,
-                'description' => 'Ragum meja cast iron 4 inch untuk jepit benda kerja',
-            ],
-            [
-                'name' => 'Ragum Meja 6 inch',
-                'category_id' => 5,
-                'description' => 'Ragum meja heavy duty 6 inch',
-            ],
-            [
-                'name' => 'Tangga Aluminium 3 meter',
-                'category_id' => 5,
-                'description' => 'Tangga lipat aluminium ringan tinggi 3 meter',
-            ],
-            [
-                'name' => 'Tangga Besi 2.5 meter',
-                'category_id' => 5,
-                'description' => 'Tangga besi kokoh tinggi 2.5 meter',
-            ],
-            [
-                'name' => 'Tangga Kayu 2 meter',
-                'category_id' => 5,
-                'description' => 'Tangga kayu jati tradisional tinggi 2 meter',
-            ],
-            [
-                'name' => 'Toolbox Plastik Besar',
-                'category_id' => 5,
-                'description' => 'Kotak perkakas plastik dengan sekat organizer',
-            ],
-            [
-                'name' => 'Toolbox Logam Sedang',
-                'category_id' => 5,
-                'description' => 'Kotak perkakas logam dengan 3 tingkat',
-            ],
-            [
-                'name' => 'Meja Kerja Besi',
-                'category_id' => 5,
-                'description' => 'Meja kerja besi dengan laci penyimpanan',
-            ],
-            [
-                'name' => 'Lampu Kerja LED 50W',
-                'category_id' => 5,
-                'description' => 'Lampu kerja LED portable dengan tripod',
-            ],
+            // Alat Kebersihan & Perawatan (category_id: 5)
+            ['name' => 'Sapu', 'category_id' => 5, 'description' => 'Alat untuk menyapu kotoran dari lantai'],
+            ['name' => 'Pel Lantai', 'category_id' => 5, 'description' => 'Alat untuk mengepel lantai dengan air'],
+            ['name' => 'Ember', 'category_id' => 5, 'description' => 'Wadah air atau cairan lainnya'],
+            ['name' => 'Vakum Industri', 'category_id' => 5, 'description' => 'Penyedot debu dan kotoran kapasitas besar'],
+            ['name' => 'Penyemprot', 'category_id' => 5, 'description' => 'Alat untuk menyemprot air atau cairan lain'],
+            ['name' => 'Sikat', 'category_id' => 5, 'description' => 'Alat gosok untuk membersihkan permukaan'],
+            ['name' => 'Lap', 'category_id' => 5, 'description' => 'Kain untuk mengelap debu atau cairan'],
+            ['name' => 'Tempat Sampah', 'category_id' => 5, 'description' => 'Wadah penampung sampah'],
+            ['name' => 'Ember Pel Putar', 'category_id' => 5, 'description' => 'Ember pel dengan mekanisme putar untuk peras air'],
+            ['name' => 'Alat Pel Semprot', 'category_id' => 5, 'description' => 'Pel lantai dengan fitur semprot air'],
         ];
 
         foreach ($products as $product) {
