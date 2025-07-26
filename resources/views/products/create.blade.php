@@ -40,7 +40,7 @@
 
             <!-- Deskripsi -->
             <div>
-                <label for="description" class="block font-medium">Deskripsi</label>
+                <label for="description" class="block font-medium">Deskripsi (opsional)</label>
                 <textarea name="description" id="description" rows="4"
                     class="w-full border rounded px-3 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
                     placeholder="Tuliskan deskripsi produk...">{{ old('description') }}</textarea>

@@ -38,11 +38,9 @@ class ProductController extends Controller
             'description' => 'nullable|string',
         ]);
 
-        $validated['slug'] = Str::slug($validated['name']);
-
         Product::create($validated);
 
-        return redirect()->route('product.index')->with('success', 'Produk berhasil ditambahkan');
+        return redirect()->route('product.index')->with('success', 'Produk ' . $request->name . ' berhasil ditambahkan');
     }
 
     /**
@@ -71,13 +69,11 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'category_id' => 'required|exists:categories,id',
             'description' => 'nullable|string',
-        ]);
-
-        $validated['slug'] = Str::slug($validated['name']);
+        ]); 
 
         $product->update($validated);
 
-        return redirect()->route('product.index')->with('success', 'Produk berhasil diperbarui');
+        return redirect()->route('product.index')->with('success', 'Produk ' . $product->name . ' berhasil diperbarui');
     }
 
     /**
@@ -86,6 +82,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('product.index')->with('success', 'Produk berhasil dihapus');
+        return redirect()->route('product.index')->with('success', 'Produk ' . $product->name . ' berhasil dihapus');
     }
 }

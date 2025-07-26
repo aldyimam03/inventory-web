@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Models\Product;
+use App\Models\Variant;
 use Illuminate\Support\ServiceProvider;
 use App\Observers\Product\ProductObserver;
+use App\Observers\Product\VariantObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,5 +24,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Product::observe(ProductObserver::class);
+        Variant::observe(VariantObserver::class);
     }
 }

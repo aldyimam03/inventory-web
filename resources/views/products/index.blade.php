@@ -2,7 +2,7 @@
     <div class="p-6">
         <div class="flex justify-between mb-4">
             <h2 class="text-xl font-semibold">Daftar Produk</h2>
-            <a href="{{ route('product.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah Produk</a>
+            <a href="{{ route('product.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Tambah Produk</a>
         </div>
 
         @if (session('success'))
@@ -16,6 +16,7 @@
                     <th class="p-2 border">Nama</th>
                     <th class="p-2 border">Kategori</th>
                     <th class="p-2 border">Slug</th>
+                    <th class="p-2 border">Description</th>
                     <th class="p-2 border">Aksi</th>
                 </tr>
             </thead>
@@ -27,6 +28,7 @@
                         <td class="p-2 border">{{ $product->name }}</td>
                         <td class="p-2 border text-center">{{ $product->category->category }}</td>
                         <td class="p-2 border">{{ $product->slug }}</td>
+                        <td class="p-2 border">{{ $product->description }}</td>
                         <td class="p-2 border w-auto max-w-[200px] whitespace-nowrap align-middle">
                             <div class="flex gap-3 justify-center">
                                 <a href="{{ route('product.edit', $product) }}"
@@ -39,7 +41,7 @@
                                         class="inline-flex items-center bg-red-100 text-red-500 px-2 py-1 rounded text-sm">Hapus</button>
                                 </form>
 
-                                <a href="{{ route('product.show', $product) }}"
+                                <a href="{{ route('variant.index', ['product' => $product->id]) }}"
                                     class="inline-flex items-center bg-yellow-100 text-yellow-500 px-2 py-1 rounded text-sm">Variant</a>
                             </div>
 
