@@ -1,8 +1,19 @@
 <x-app-layout>
     <div class="p-6">
-        <div class="flex justify-between mb-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
             <h2 class="text-xl font-semibold">Daftar Produk</h2>
-            <a href="{{ route('product.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah Produk</a>
+
+            <div class="flex w-full md:w-2/3 gap-8">
+                <form action="{{ route('product.index') }}" method="GET" class="flex flex-grow gap-2">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari produk..."
+                        class="flex-grow px-4 py-2 border rounded" />
+                    <button type="submit"
+                        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Cari</button>
+                </form>
+            </div>
+            <a href="{{ route('product.create') }}"
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition whitespace-nowrap">Tambah
+                Produk</a>
         </div>
 
         @if (session('success'))
@@ -42,7 +53,6 @@
                                 <a href="{{ route('product.show', $product) }}"
                                     class="inline-flex items-center bg-yellow-100 text-yellow-500 px-2 py-1 rounded text-sm">Variant</a>
                             </div>
-
                         </td>
                     </tr>
                 @endforeach
