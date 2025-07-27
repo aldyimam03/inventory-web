@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="p-6 max-w-3xl mx-auto">
-        <h2 class="text-2xl font-semibold mb-4">Edit Produk</h2>
+        <h2 class="text-2xl font-semibold mb-4">Edit Produk {{ $product->name }}</h2>
 
         @if ($errors->any())
             <div class="bg-red-100 text-red-800 p-4 rounded mb-4">
@@ -19,8 +19,7 @@
             <!-- Nama Produk -->
             <div>
                 <label for="name" class="block font-medium">Nama Produk</label>
-                <input type="text" name="name" id="name"
-                    value="{{ old('name', $product->name) }}"
+                <input type="text" name="name" id="name" value="{{ old('name', $product->name) }}"
                     class="w-full border rounded px-3 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
                     required>
             </div>
@@ -50,10 +49,12 @@
 
             <!-- Tombol -->
             <div class="flex justify-between mt-6">
-                <a href="{{ route('product.index') }}"
-                    class="text-sm text-gray-600 hover:underline">← Kembali</a>
+                <button class="px-4 py-2 rounded bg-gray-300 text-gray-800">
+                    <a href="{{ route('product.index') }}">Kembali</a>
+                </button>
                 <button type="submit"
-                    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Simpan Perubahan</button>
+                    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Simpan
+                    Perubahan</button>
             </div>
         </form>
     </div>

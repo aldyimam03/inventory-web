@@ -2,7 +2,6 @@
     <div class="p-6">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
             <h2 class="text-xl font-semibold">Daftar Produk</h2>
-
             <div class="flex w-full md:w-2/3 gap-8">
                 <form action="{{ route('product.index') }}" method="GET" class="flex flex-grow gap-2">
                     <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari produk..."
@@ -27,6 +26,7 @@
                     <th class="p-2 border">Nama</th>
                     <th class="p-2 border">Kategori</th>
                     <th class="p-2 border">Slug</th>
+                    <th class="p-2 border">Description</th>
                     <th class="p-2 border">Aksi</th>
                 </tr>
             </thead>
@@ -38,6 +38,7 @@
                         <td class="p-2 border">{{ $product->name }}</td>
                         <td class="p-2 border text-center">{{ $product->category->category }}</td>
                         <td class="p-2 border">{{ $product->slug }}</td>
+                        <td class="p-2 border">{{ $product->description }}</td>
                         <td class="p-2 border w-auto max-w-[200px] whitespace-nowrap align-middle">
                             <div class="flex gap-3 justify-center">
                                 <a href="{{ route('product.edit', $product) }}"
@@ -50,7 +51,7 @@
                                         class="inline-flex items-center bg-red-100 text-red-500 px-2 py-1 rounded text-sm">Hapus</button>
                                 </form>
 
-                                <a href="{{ route('product.show', $product) }}"
+                                <a href="{{ route('variant.index', ['product' => $product->id]) }}"
                                     class="inline-flex items-center bg-yellow-100 text-yellow-500 px-2 py-1 rounded text-sm">Variant</a>
                             </div>
                         </td>
