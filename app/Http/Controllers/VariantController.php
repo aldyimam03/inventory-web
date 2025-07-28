@@ -96,4 +96,14 @@ class VariantController extends Controller
         return redirect()->route('variant.index', $product->id)
             ->with('success', 'Varian ' . $variant->name . ' berhasil dihapus!');
     }
+
+    public function getVariants(Product $product)
+    {
+        $variants = $product->variants()->get(); 
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $variants
+        ]);
+    }
 }

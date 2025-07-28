@@ -20,16 +20,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        User::create([
-            'name' => 'admin',
-            'email' => 'admin@example.com',
-            'password' => bcrypt('password'),
-        ]);
-
         $this->call([
+            DivisionSeeder::class,
             CategorySeeder::class,
             ProductSeeder::class,
-            VariantSeeder::class
+            VariantSeeder::class,
+            UserSeeder::class,
+            RequestInventorySeeder::class
         ]);
     }
 }

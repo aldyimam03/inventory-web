@@ -18,6 +18,18 @@
                     <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.*')">
                         {{ __('Products') }}
                     </x-nav-link>
+                    @auth
+                        @if (auth()->user()->role === 'admin')
+                            <x-nav-link :href="route('request.index')" :active="request()->routeIs('request.*')">
+                                {{ __('Request') }}
+                            </x-nav-link>
+                        @else
+                            <x-nav-link :href="route('request.create')" :active="request()->routeIs('request.create')">
+                                {{ __('Request') }}
+                            </x-nav-link>
+                        @endif
+                    @endauth
+
                 </div>
             </div>
 
