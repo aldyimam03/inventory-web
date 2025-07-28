@@ -21,7 +21,8 @@ class RequestInventorySeeder extends Seeder
                 'variant_id' => 1,
                 'quantity' => 10,
                 'note' => 'Request inventory 1',
-                'status' => 'pending',
+                'status' => 'approved',
+                'approved_by' => 1,
             ],
             [
                 'user_id' => 2,
@@ -30,7 +31,8 @@ class RequestInventorySeeder extends Seeder
                 'variant_id' => 2,
                 'quantity' => 5,
                 'note' => 'Request inventory 2',
-                'status' => 'approved',
+                'status' => 'rejected',
+                'approved_by' => 1,
             ],
             [
                 'user_id' => 3,
@@ -39,7 +41,7 @@ class RequestInventorySeeder extends Seeder
                 'variant_id' => 3,
                 'quantity' => 15,
                 'note' => 'Request inventory 3',
-                'status' => 'rejected',
+                'status' => 'pending',
             ],
             [
                 'user_id' => 4,
@@ -57,8 +59,17 @@ class RequestInventorySeeder extends Seeder
                 'variant_id' => 5,
                 'quantity' => 12,
                 'note' => 'Request inventory 5',
-                'status' => 'approved',
+                'status' => 'pending',
             ],
+            [
+                'user_id' => 2,
+                'division_id' => 4,
+                'product_id' => 24,
+                'variant_id' => 3,
+                'quantity' => 12,
+                'note' => 'Request inventory 6',
+                'status' => 'pending',
+            ]
         ];
 
         foreach ($requestInventories as $requestInventory) {

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->text('note')->nullable();
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->foreignId('approved_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
         });
     }

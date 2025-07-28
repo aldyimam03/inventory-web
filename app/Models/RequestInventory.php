@@ -16,7 +16,8 @@ class RequestInventory extends Model
         'variant_id',
         'quantity',
         'note',
-        'status'
+        'status',
+        'approved_by'
     ];
 
     public function user()
@@ -37,5 +38,10 @@ class RequestInventory extends Model
     public function division()
     {
         return $this->belongsTo(Division::class);
+    }
+
+    public function approver()
+    {
+        return $this->belongsTo(User::class, 'approved_by');
     }
 }

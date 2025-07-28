@@ -79,9 +79,9 @@
 
             {{-- Catatan --}}
             <div>
-                <label for="purpose_note" class="block mb-1 font-medium text-sm">Keterangan / Tujuan Peminjaman</label>
-                <textarea name="purpose_note" id="purpose_note" rows="3" class="w-full px-4 py-2 border rounded">{{ old('purpose_note') }}</textarea>
-                @error('purpose_note')
+                <label for="note" class="block mb-1 font-medium text-sm">Keterangan / Tujuan Peminjaman</label>
+                <textarea name="note" id="note" rows="3" class="w-full px-4 py-2 border rounded">{{ old('note') }}</textarea>
+                @error('note')
                     <small class="text-red-500">{{ $message }}</small>
                 @enderror
             </div>

@@ -59,6 +59,14 @@ class RequestInventoryController extends Controller
             'note' => 'nullable|string',
         ]);
 
+        $variant = Variant::findOrFail($request->variant_id);
+
+        if ($request->quantity > $variant->stock) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors(['quantity' => 'Stok tidak mencukupi. Tersedia: ' . $variant->stock]);
+        }
+
         // Simpan ke database
         // abaikan error karna hanya error intelepse
         RequestInventory::create([
@@ -77,9 +85,11 @@ class RequestInventoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(RequestInventory $requestInventory)
+    public function show(RequestInventory $requestInventory, $id)
     {
-        //
+        $requestInventory = RequestInventory::with(['division', 'variant.product', 'user', 'approver'])->findOrFail($id);
+
+        return view('request.show', compact('requestInventory'));
     }
 
     /**
@@ -104,5 +114,33 @@ class RequestInventoryController extends Controller
     public function destroy(RequestInventory $requestInventory)
     {
         //
+    }
+
+    public function approve(Request $request, $id)
+    {
+        $inventory = RequestInventory::with('variant')->findOrFail($id);
+
+        // Jika action adalah approve, baru cek dan kurangi stok
+        if ($request->action === 'approve') {
+            if (!$inventory->quantity || $inventory->variant->stock < $inventory->quantity) {
+                return redirect()->route('request.show', $inventory->id)
+                    ->with('error', 'Stok varian tidak mencukupi!');
+            }
+
+            // Kurangi stok
+            $inventory->variant->decrement('stock', $inventory->quantity);
+
+            $inventory->update([
+                'status' => 'approved',
+                'approved_by' => auth()->id(),
+            ]);
+        } elseif ($request->action === 'reject') {
+            $inventory->update([
+                'status' => 'rejected',
+                'approved_by' => auth()->id(),
+            ]);
+        }
+
+        return redirect()->route('request.index')->with('success', 'Status permintaan diperbarui.');
     }
 }

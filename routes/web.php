@@ -51,6 +51,7 @@ Route::middleware('auth')->group(function () {
         // Request Admin List
         Route::get('requests', [RequestInventoryController::class, 'index'])->name('request.index');
         Route::get('requests/{request}', [RequestInventoryController::class, 'show'])->name('request.show');
+        Route::patch('/request/{id}/approve', [RequestInventoryController::class, 'approve'])->name('request.approve');
     });
 });
 
