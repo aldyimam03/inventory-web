@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VariantController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RequestInventoryController;
 
 Route::get('/', function () {
@@ -15,6 +16,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    // Dashboard 
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
