@@ -125,7 +125,7 @@ class RequestInventoryController extends Controller
             if (!$inventory->quantity || $inventory->variant->stock < $inventory->quantity) {
                 return redirect()->route('request.show', $inventory->id)
                     ->with('error', 'Stok varian tidak mencukupi!');
-            }
+            }   
 
             // Kurangi stok
             $inventory->variant->decrement('stock', $inventory->quantity);
