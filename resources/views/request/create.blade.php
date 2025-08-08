@@ -12,6 +12,12 @@
             </div>
         @endif
 
+        @if (session('error'))
+            <div class="bg-red-100 text-red-800 p-3 rounded mb-4">
+                {{ session('error') }}
+            </div>
+        @endif
+
         @if ($errors->any())
             <div class="bg-red-100 text-red-800 p-3 rounded mb-4">
                 <ul class="list-disc pl-5">
@@ -25,7 +31,8 @@
 
         <form action="{{ route('request.store') }}" method="POST" class="space-y-5">
             @csrf
-
+            <span class="text-xs text-red-500 italic">Note: jika anda belum memiliki divisi, silahkan hubungi
+                admin</span>
             {{-- Nama Divisi --}}
             <div>
                 <label class="block mb-1 font-medium text-sm">Nama</label>
@@ -36,7 +43,7 @@
             {{-- Nama Divisi --}}
             <div>
                 <label class="block mb-1 font-medium text-sm">Divisi</label>
-                <input type="text" value="{{ auth()->user()->division->name }}" disabled
+                <input type="text" value="{{ auth()->user()->division->name ?? 'Belum memiliki divisi' }}" disabled
                     class="w-full px-4 py-2 border rounded bg-gray-100 text-gray-700">
             </div>
 
