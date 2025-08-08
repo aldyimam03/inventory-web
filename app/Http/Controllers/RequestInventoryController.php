@@ -51,6 +51,13 @@ class RequestInventoryController extends Controller
      */
     public function store(Request $request)
     {
+        // Cek apakah user tidak memiliki role
+        if (empty(auth()->user()->divison_id)) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Akun Anda belum memiliki divisi. Silakan hubungi admin.');
+        }
+
         // Validasi
         $validated = $request->validate([
             'product_id' => 'required|exists:products,id',
@@ -125,7 +132,7 @@ class RequestInventoryController extends Controller
             if (!$inventory->quantity || $inventory->variant->stock < $inventory->quantity) {
                 return redirect()->route('request.show', $inventory->id)
                     ->with('error', 'Stok varian tidak mencukupi!');
-            }   
+            }
 
             // Kurangi stok
             $inventory->variant->decrement('stock', $inventory->quantity);
