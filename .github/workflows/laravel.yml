@@ -16,8 +16,6 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: inventory_web_testing
-          MYSQL_USER: laravel
-          MYSQL_PASSWORD: laravel
         ports:
           - 3306:3306
         options: >-
@@ -40,7 +38,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
     
     - name: Cache Composer dependencies
@@ -52,17 +50,16 @@ jobs:
           composer-${{ runner.os }}-
     
     - name: Copy environment file
-      run: cp .env.example .env
+      run: |
+        cp .env.example .env
+        cp .env.example .env.testing
     
     - name: Install Composer dependencies
-      run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+      run: composer install --no-interaction --prefer-dist --optimize-autoloader
     
-    - name: Generate application key
-      run: php artisan key:generate
-    
-    - name: Set up testing environment
+    - name: Generate application keys
       run: |
-        cp .env .env.testing
+        php artisan key:generate
         php artisan key:generate --env=testing
     
     - name: Install NPM dependencies
@@ -85,10 +82,9 @@ jobs:
     - name: Create testing database
       run: |
         mysql -h 127.0.0.1 -P 3306 -u root -proot -e "CREATE DATABASE IF NOT EXISTS inventory_web_testing;"
-        mysql -h 127.0.0.1 -P 3306 -u root -proot -e "GRANT ALL PRIVILEGES ON inventory_web_testing.* TO 'root'@'%';"
+        mysql -h 127.0.0.1 -P 3306 -u root -proot -e "SHOW DATABASES;"
     
     - name: Run database migrations
-      run: php artisan migrate --force --env=testing
       env:
         DB_CONNECTION: mysql
         DB_HOST: 127.0.0.1
@@ -96,9 +92,10 @@ jobs:
         DB_DATABASE: inventory_web_testing
         DB_USERNAME: root
         DB_PASSWORD: root
+        APP_ENV: testing
+      run: php artisan migrate --force --env=testing
     
     - name: Seed database (optional)
-      run: php artisan db:seed --force --env=testing
       env:
         DB_CONNECTION: mysql
         DB_HOST: 127.0.0.1
@@ -106,10 +103,22 @@ jobs:
         DB_DATABASE: inventory_web_testing
         DB_USERNAME: root
         DB_PASSWORD: root
+        APP_ENV: testing
+      run: php artisan db:seed --force --env=testing
       continue-on-error: true
     
+    - name: Debug environment
+      run: |
+        echo "Laravel Version:"
+        php artisan --version
+        echo "Available test commands:"
+        php artisan list | grep test
+        echo "Environment file exists:"
+        ls -la .env*
+        echo "Testing environment variables:"
+        php artisan env --env=testing || echo "Env command not available"
+    
     - name: Run tests
-      run: php artisan test --env=testing
       env:
         DB_CONNECTION: mysql
         DB_HOST: 127.0.0.1
@@ -117,3 +126,9 @@ jobs:
         DB_DATABASE: inventory_web_testing
         DB_USERNAME: root
         DB_PASSWORD: root
+        APP_ENV: testing
+        CACHE_DRIVER: array
+        SESSION_DRIVER: array
+        QUEUE_CONNECTION: sync
+        MAIL_MAILER: array
+      run: php artisan test --env=testing --parallel
