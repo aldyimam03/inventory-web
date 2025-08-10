@@ -50,7 +50,7 @@ jobs:
       run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
     - name: Install Node dependencies
-      run: npm ci
+      run: npm i ci
 
     - name: Build frontend assets
       run: npm run build
