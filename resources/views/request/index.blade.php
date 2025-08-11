@@ -1,7 +1,11 @@
 <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Daftar Permintaan Alat Inventory') }}
+        </h2>
+    </x-slot>
     <div class="p-6">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-            <h2 class="text-xl font-semibold">Daftar Permintaan Alat Inventory</h2>
 
             {{-- Form Search (opsional untuk filter) --}}
             <div class="w-full md:flex md:justify-center md:flex-1">

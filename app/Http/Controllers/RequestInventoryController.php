@@ -51,8 +51,8 @@ class RequestInventoryController extends Controller
      */
     public function store(Request $request)
     {
-        // Cek apakah user tidak memiliki role
-        if (empty(auth()->user()->divison_id)) {
+        // Cek apakah user tidak memiliki divisi
+        if (empty(auth()->user()->division_id)) {
             return redirect()->back()
                 ->withInput()
                 ->with('error', 'Akun Anda belum memiliki divisi. Silakan hubungi admin.');
