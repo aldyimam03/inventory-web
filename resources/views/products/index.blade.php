@@ -1,7 +1,12 @@
 <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Daftar Produk') }}
+        </h2>
+    </x-slot>
+
     <div class="p-6">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-            <h2 class="text-xl font-semibold">Daftar Produk</h2>
 
             {{-- Form Search --}}
             <div class="w-full md:flex md:justify-center md:flex-1">
@@ -38,7 +43,7 @@
                     <th class="p-2 border">Kategori</th>
                     @auth
                         @if (auth()->user()->role == 'admin')
-                        <th class="p-2 border">Slug</th>
+                            <th class="p-2 border">Slug</th>
                         @endif
                     @endauth
                     <th class="p-2 border">Description</th>
