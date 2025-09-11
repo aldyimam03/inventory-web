@@ -3,6 +3,7 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VariantController;
@@ -21,7 +22,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     // Dashboard 
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-    
+
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -67,7 +68,11 @@ Route::middleware('auth')->group(function () {
         Route::get('requests', [RequestInventoryController::class, 'index'])->name('request.index');
         Route::get('requests/{request}', [RequestInventoryController::class, 'show'])->name('request.show');
         Route::patch('/request/{id}/approve', [RequestInventoryController::class, 'approve'])->name('request.approve');
+        Route::patch('/request/{id}/returned', [RequestInventoryController::class, 'returned'])->name('request.returned');
     });
+
+    // History
+    Route::get('/history', [HistoryController::class, 'index'])->name('history.index');
 });
 
 require __DIR__ . '/auth.php';

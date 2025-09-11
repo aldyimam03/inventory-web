@@ -150,4 +150,21 @@ class RequestInventoryController extends Controller
 
         return redirect()->route('request.index')->with('success', 'Status permintaan diperbarui.');
     }
+
+    public function returned($id)
+    {
+        $requestInventory = RequestInventory::with('variant')->findOrFail($id);
+
+        if ($requestInventory->status !== 'approved') {
+            return redirect()->back()->with('error', 'Hanya permintaan yang approved yang bisa dikembalikan.');
+        }
+
+        $requestInventory->variant->increment('stock', $requestInventory->quantity);
+        $requestInventory->update([
+            'status' => 'returned',
+            'returned_by' => auth()->id(),
+        ]);
+
+        return redirect()->route('request.index')->with('success', 'Status berhasil diubah menjadi returned.');
+    }
 }

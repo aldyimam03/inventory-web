@@ -60,11 +60,13 @@
                             <td class="py-2">
                                 <span
                                     class="inline-block px-3 py-1 text-sm rounded 
-                                    {{ $requestInventory->status == 'pending'
-                                        ? 'bg-yellow-100 text-yellow-800'
-                                        : ($requestInventory->status == 'approved'
-                                            ? 'bg-green-100 text-green-800'
-                                            : 'bg-red-100 text-red-800') }}">
+    {{ $requestInventory->status == 'pending'
+        ? 'bg-yellow-100 text-yellow-800'
+        : ($requestInventory->status == 'approved'
+            ? 'bg-green-100 text-green-800'
+            : ($requestInventory->status == 'returned'
+                ? 'bg-purple-100 text-purple-800'
+                : 'bg-red-100 text-red-800')) }}">
                                     {{ ucfirst($requestInventory->status) }}
                                 </span>
                             </td>
@@ -99,6 +101,14 @@
                         <button type="submit" name="action" value="reject"
                             class="px-4 py-2 bg-red-100 text-red-500 rounded">
                             Reject
+                        </button>
+                    </form>
+                @elseif ($requestInventory->status === 'approved')
+                    <form action="{{ route('request.returned', $requestInventory->id) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" class="px-4 py-2 bg-purple-100 text-purple-500 rounded">
+                            Returned
                         </button>
                     </form>
                 @endif
