@@ -32,6 +32,9 @@
                             </x-nav-link>
                         @endif
                     @endauth
+                    <x-nav-link :href="route('history.index')" :active="request()->routeIs('history.*')">
+                        {{ __('History') }}
+                    </x-nav-link>
 
                 </div>
             </div>

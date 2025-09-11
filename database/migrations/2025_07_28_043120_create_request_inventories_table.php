@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('variant_id')->constrained()->onDelete('cascade');
             $table->integer('quantity');
             $table->text('note')->nullable();
-            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->enum('status', ['pending', 'approved', 'rejected', 'returned'])->default('pending');
             $table->foreignId('approved_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
         });

@@ -47,11 +47,13 @@
                         <td class="p-2 border text-center">
                             <span
                                 class="inline-block px-2 py-1 rounded 
-                                {{ $request->status === 'pending'
-                                    ? 'bg-yellow-200 text-yellow-800'
-                                    : ($request->status === 'approved'
-                                        ? 'bg-green-200 text-green-800'
-                                        : 'bg-red-200 text-red-800') }}">
+    {{ $request->status === 'pending'
+        ? 'bg-yellow-200 text-yellow-800'
+        : ($request->status === 'approved'
+            ? 'bg-green-200 text-green-800'
+            : ($request->status === 'returned'
+                ? 'bg-purple-200 text-purple-800'
+                : 'bg-red-200 text-red-800')) }}">
                                 {{ ucfirst($request->status) }}
                             </span>
                         </td>
