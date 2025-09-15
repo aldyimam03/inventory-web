@@ -10,24 +10,38 @@
             class="max-w-7xl mx-auto sm:px-6 lg:px-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center text-xl">
             <!-- Card: Total Produk -->
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
+                <div class="flex justify-center">
+                    <img width="96" height="96" src="https://img.icons8.com/forma-thin-filled/96/product.png"
+                        alt="product" />
+                </div>
                 <div class="text-gray-500 text-center">Total Produk</div>
                 <div class="mt-3 text-2xl font-bold" id="count-products">0</div>
             </div>
 
             <!-- Card: Total Variant -->
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
+                <div class="flex justify-center"> <img width="96" height="96"
+                        src="https://img.icons8.com/material-sharp/96/shopify.png" alt="shopify" /></div>
                 <div class="text-gray-500 text-center">Total Variant</div>
                 <div class="mt-3 text-2xl font-bold" id="count-variants">0</div>
             </div>
 
             <!-- Card: Total Request -->
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
+                <div class="flex justify-center">
+                    <img width="96" height="96"
+                        src="https://img.icons8.com/fluency-systems-filled/96/ask-question.png" alt="ask-question" />
+                </div>
                 <div class="text-gray-500 text-center">Total Request</div>
                 <div class="mt-3 text-2xl font-bold" id="count-requests">0</div>
             </div>
 
             <!-- Card: Total User -->
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
+                <div class="flex justify-center">
+                    <img width="96" height="96" src="https://img.icons8.com/material-sharp/96/user.png"
+                        alt="user" />
+                </div>
                 <div class="text-gray-500 text-center">Total User</div>
                 <div class="mt-3 text-2xl font-bold" id="count-users">0</div>
             </div>
